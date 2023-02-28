@@ -6,7 +6,7 @@ class BeastsController < ApplicationController
 
   def show
     @user = current_user
-    @beast = Beast.find(params[id])
+    @beast = Beast.find(params[:id])
     @beast.user = @user
     authorize @beast
   end
@@ -38,6 +38,6 @@ class BeastsController < ApplicationController
   private
 
   def beasts_params
-    params.require(:beasts).permit(:race, :tags, :price_per_day, :danger_gauge)
+    params.require(:beast).permit(:race, :tags, :price_per_day, :danger_gauge)
   end
 end
