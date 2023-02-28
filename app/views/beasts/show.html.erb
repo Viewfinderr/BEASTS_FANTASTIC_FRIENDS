@@ -1,0 +1,6 @@
+<h1>dezuih</h1>
+
+<% if policy(@beast).edit? %>
+  <%= link_to "Edit this beast", edit_beast_path(@beast) %> |
+<% end %>
+<%= button_to "Destroy this beast", @beast, method: :delete if policy(@beast).destroy? %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_100953) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_111009) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_100953) do
     t.index ["user_id"], name: "index_beasts_on_user_id"
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "beast_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status"
+    t.float "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beast_id"], name: "index_bookings_on_beast_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -33,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_100953) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin"
     t.string "first_name"
     t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -40,4 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_100953) do
   end
 
   add_foreign_key "beasts", "users"
+  add_foreign_key "bookings", "beasts"
+  add_foreign_key "bookings", "users"
 end
