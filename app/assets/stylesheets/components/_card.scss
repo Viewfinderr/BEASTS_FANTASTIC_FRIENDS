@@ -21,6 +21,56 @@
   grid-gap: 16px;
 }
 
+// .card-beast {
+//   overflow: hidden;
+//   background: white;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+// }
+
+.card-beast > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-beast  h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-beast .beast-info-reverse h2 {
+  font-size: 12px;
+}
+
+.card-beast p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  // background-color: aqua;
+}
+
+
+.card-beast .card-beast-infos {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-beast-infos .card-beast-user {
+  width: 40px;
+}
+
+.beast-info-reverse {
+  display: flex;
+  flex-direction: column-reverse;
+  font-size: 6px;
+  // background-color: greenyellow ;
+}
+
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

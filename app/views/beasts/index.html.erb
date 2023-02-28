@@ -1,1 +1,28 @@
+<div class="container">
+  <div class="cards">
+    <% @beasts.each do |beast| %>
+        <%= link_to beast_path(beast), class: "text-decoration-none" do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?<%=beast.race%>)">
+          </div>
+          <div class="card-beast">
+            <div class="card-beast-infos">
+              <div>
+                <h2>Title here</h2>
+                <%= beast.tags.each do |tag| %>
+                <%= tag %>
+                <% end %>
+              </div>
+              <div class="beast-info-reverse">
+                <h2 class="card-beast-pricing text-decoration-none">£99.99</h2>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-beast-user avatar-bordered" />
+              </div>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
+
+
 <%= link_to "New beast", new_beast_path if policy(Beast).new? %>
+
+<%  %>

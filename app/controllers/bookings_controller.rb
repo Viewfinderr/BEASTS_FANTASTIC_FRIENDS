@@ -1,7 +1,10 @@
 class BookingsController < ApplicationController
   def create
+    @beast = Beast.find(params[:beast_id])
     @booking = Booking.new(booking_params)
     @booking.beast = @beast
+    @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to beast_path(@beast)
     else
@@ -10,7 +13,9 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @beast = Beast.find(params[:beast_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   private
