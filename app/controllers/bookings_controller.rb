@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.beast = @beast
     if @booking.save
-      redirect_to list_path(@beast)
+      redirect_to beast_path(@beast)
     else
       render :new, status: :unprocessable_entity
     end
