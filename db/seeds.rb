@@ -8,7 +8,10 @@
 require 'faker'
 
 5.times do
-  user = User.create!(first_name: Faker::Movies::HarryPotter.character, last_name: Faker::Movies::HarryPotter.house, email: Faker::Internet.email, password: Faker::Internet.password(min_length: 8))
+  User.create!(first_name: Faker::Movies::HarryPotter.character,
+               last_name: Faker::Movies::HarryPotter.house,
+               email: Faker::Internet.email,
+               password: Faker::Internet.password(min_length: 8))
 end
 
 10.times do
