@@ -7,6 +7,7 @@ class BeastsController < ApplicationController
   def show
     @user = current_user
     @beast = Beast.find(params[:id])
+    @beast.user = @user
     authorize @beast
   end
 
