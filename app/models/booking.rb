@@ -4,6 +4,8 @@ class Booking < ApplicationRecord
 
   before_validation :set_status
 
+  validates :start_date, :end_date, :status, presence: true
+
   private
 
   def set_status
