@@ -7,7 +7,7 @@
     <%= f.input :description, label: 'Describe the beast' %>
     <%= f.input :tags, collection: Beast::TAGS, input_html: { multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true, plugins: ['remove_button']}}} %>
     <%= f.input :price_per_day %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class:"btn-primary" %>
 
   <% end %>
 
