@@ -30,7 +30,7 @@ class BeastsController < ApplicationController
     @beast.user = @user
     authorize @beast
     if @beast.save
-      redirect_to root_path
+      redirect_to beast_path(@beast)
     else
       render :new, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class BeastsController < ApplicationController
   private
 
   def beasts_params
-    params.require(:beast).permit(:race, :price_per_day, :danger_gauge, :name, :description, tags: [])
+    params.require(:beast).permit(:race, :price_per_day, :danger_gauge, :name, :description, photos: [], tags: [])
   end
 end
