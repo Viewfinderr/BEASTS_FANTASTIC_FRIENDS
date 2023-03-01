@@ -5,13 +5,13 @@
   <div class="cards">
     <% @beasts.each do |beast| %>
         <%= link_to beast_path(beast), class: "text-decoration-none" do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://source.unsplash.com/random/?<%=beast.race%>)">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path beast.photos.first.key, crop: :fill %>)" >
           </div>
           <div class="card-beast">
             <div class="card-beast-infos ">
               <div>
                 <h2><%= beast.race %></h2>
-                <%= beast.tags.each do |tag| %>
+                <% beast.tags.each do |tag| %>
                 <%= tag %>
                 <% end %>
               </div>
@@ -25,10 +25,10 @@
     <% end %>
   </div>
 
-  <div style="width: 100%; height: 600px;" data-controller="map"
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 
 <%= link_to "New beast", new_beast_path if policy(Beast).new? %>

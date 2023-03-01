@@ -7,7 +7,7 @@ class BeastsController < ApplicationController
         lat: beast.latitude,
         lng: beast.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: { beast: beast }),
-        marker_html: render_to_string(partial: "marker", locals: { beast: beast })
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
@@ -46,6 +46,6 @@ class BeastsController < ApplicationController
   private
 
   def beasts_params
-    params.require(:beast).permit(:race, :price_per_day, :danger_gauge, :name, :description, tags: [])
+    params.require(:beast).permit(:race, :price_per_day, :danger_gauge, :name, :description, photos: [], tags: [])
   end
 end
