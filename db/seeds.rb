@@ -15,7 +15,7 @@ require 'faker'
 end
 
 10.times do
-  beast = Beast.new(race: Faker::Fantasy::Tolkien.race, danger_gauge: 6, tags: Faker::Verb.past_participle, price_per_day: 35)
+  beast = Beast.new(race: Faker::Fantasy::Tolkien.race, danger_gauge: rand(1..10), tags: Faker::Verb.past_participle, price_per_day: 35)
   beast.user = User.all.sample
   beast.save!
 end

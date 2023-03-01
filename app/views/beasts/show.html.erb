@@ -1,4 +1,4 @@
-<h1>dezuih</h1>
+<h1 class= "text-white">Ur Beasts</h1>
 
 <% if policy(@beast).edit? %>
   <%= link_to "Edit this beast", edit_beast_path(@beast) %> |
@@ -7,3 +7,6 @@
 
 <%= link_to "homepage", root_path%>
 <%= link_to "view beasts", beasts_path%>
+<%= link_to "Dasboard", dashboard_path%>
+
+<%= link_to "Book a Beast",  new_beast_booking_path(@beast), class: "btn btn-secondary"  %>
