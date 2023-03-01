@@ -3,9 +3,12 @@
   <%= simple_form_for @beast do |f| %>
     <%= f.input :race, label: 'The race of your beast 🦄', error: 'Please specify one🔑' %>
     <%= f.input :danger_gauge, hint: '../10' %>
+    <%= f.input :name, label: 'The pet name :' %>
+    <%= f.input :description, label: 'Describe the beast' %>
     <%= f.input :tags %>
     <%= f.input :price_per_day %>
     <%= f.button :submit %>
+
   <% end %>
 
   <%= link_to "homepage", root_path%>
