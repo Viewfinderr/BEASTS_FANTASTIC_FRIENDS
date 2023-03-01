@@ -4,3 +4,9 @@
   <%= link_to "Edit this beast", edit_beast_path(@beast) %> |
 <% end %>
 <%= button_to "Destroy this beast", @beast, method: :delete if policy(@beast).destroy? %>
+
+<div class="container">
+<% @beast.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+</div>
