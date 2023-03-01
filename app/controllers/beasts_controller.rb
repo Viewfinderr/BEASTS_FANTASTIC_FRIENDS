@@ -38,6 +38,6 @@ class BeastsController < ApplicationController
   private
 
   def beasts_params
-    params.require(:beast).permit(:race, :tags, :price_per_day, :danger_gauge, :name, :description)
+    params.require(:beast).permit(:race, :price_per_day, :danger_gauge, :name, :description, tags: [])
   end
 end
