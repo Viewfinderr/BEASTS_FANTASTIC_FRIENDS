@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to beast_path(@beast)
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
