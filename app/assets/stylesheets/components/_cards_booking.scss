@@ -1,0 +1,31 @@
+.beasts-list {
+
+}
+
+.beast-owner{
+// background-color: rgb(164, 164, 164);
+margin: 60px 0;
+// box-shadow: 2px 2px 5px rgba(112, 112, 112, 0.437);
+}
+
+.user-renting{
+  // background-color: rgb(207, 207, 207);
+  margin: 60px 0;
+}
+
+.booked{
+  background-color: rgb(164, 164, 164);
+  border-bottom: 1px solid rgba(61, 61, 61, 0.322);
+  box-shadow: 1px 1px 5px rgba(62, 62, 62, 0.322);
+  padding: 10px 15px;
+}
+
+.booking-info {
+  background-color:rgb(9, 98, 68) ;
+  padding: 10px;
+  width: 100%;
+  margin:0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
