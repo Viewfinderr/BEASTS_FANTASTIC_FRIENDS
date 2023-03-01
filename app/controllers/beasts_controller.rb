@@ -30,7 +30,7 @@ class BeastsController < ApplicationController
     @beast.user = @user
     authorize @beast
     if @beast.save
-      redirect_to root_path
+      redirect_to beast_path(@beast)
     else
       render :new, status: :unprocessable_entity
     end
