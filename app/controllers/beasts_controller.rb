@@ -1,7 +1,15 @@
 class BeastsController < ApplicationController
   def index
-    @beasts = Beast.all
-    @beast = policy_scope(Beast)
+    @beasts = policy_scope(Beast)
+
+    @markers = @beasts.geocoded.map do |beast|
+      {
+        lat: beast.latitude,
+        lng: beast.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { beast: beast }),
+        marker_html: render_to_string(partial: "marker", locals: { beast: beast })
+      }
+    end
   end
 
   def show
