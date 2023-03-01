@@ -37,6 +37,7 @@
   font-size: 25px;
   font-weight: bold;
   margin: 0;
+  color: white;
 }
 
 .card-beast .beast-info-reverse h2 {
@@ -47,6 +48,7 @@
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  color: white;
   // background-color: aqua;
 }
 
@@ -57,6 +59,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  color: white;
 }
 
 .card-beast-infos .card-beast-user {
@@ -67,8 +70,8 @@
   display: flex;
   flex-direction: column-reverse;
   font-size: 6px;
-  // background-color: greenyellow ;
 }
+
 
 
 // Smallest device

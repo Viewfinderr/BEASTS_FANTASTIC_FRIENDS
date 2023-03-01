@@ -1,7 +1,15 @@
 class BeastsController < ApplicationController
   def index
-    @beasts = Beast.all
-    @beast = policy_scope(Beast)
+    @beasts = policy_scope(Beast)
+
+    @markers = @beasts.geocoded.map do |beast|
+      {
+        lat: beast.latitude,
+        lng: beast.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { beast: beast }),
+        marker_html: render_to_string(partial: "marker", locals: { beast: beast })
+      }
+    end
   end
 
   def show
@@ -22,7 +30,7 @@ class BeastsController < ApplicationController
     @beast.user = @user
     authorize @beast
     if @beast.save
-      redirect_to root_path
+      redirect_to beast_path(@beast)
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,6 +46,6 @@ class BeastsController < ApplicationController
   private
 
   def beasts_params
-    params.require(:beast).permit(:race, :tags, :price_per_day, :danger_gauge, :photos)
+    params.require(:beast).permit(:race, :price_per_day, :danger_gauge, :name, :photos, :description, tags: [])
   end
 end
