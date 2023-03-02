@@ -11,7 +11,6 @@
     wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
     %>
     <%= f.input :price_per_day, label: 'Price per Day 💸' %>
-    <%= f.input :address, label: false, label: "Address 🚗 :", placeholder: "ex: 16 villa gaudelet" %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, class:"btn btn-primary"%>
   <% end %>
@@ -19,3 +18,5 @@
   <%= link_to "homepage", root_path, class: "btn btn-secondary mt-5" %>
   <%= link_to "view beasts", beasts_path, class: "btn btn-secondary mt-5" %>
 </div>
+
+<%# label: false, label: "Address 🚗 :", placeholder: "ex: 16 villa gaudelet" %>
