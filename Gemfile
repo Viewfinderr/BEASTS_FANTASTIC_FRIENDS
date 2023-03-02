@@ -36,6 +36,8 @@ gem "pundit"
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
 
+# search barre
+gem "pg_search"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

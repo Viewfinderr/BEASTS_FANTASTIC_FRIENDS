@@ -11,6 +11,13 @@ class Beast < ApplicationRecord
   # validates :tags, inclusion: { in: TAGS }
   before_validation :shift_tags
 
+  include PgSearch::Model
+  pg_search_scope :search_by_name_race_tags,
+    against: [ :name, :race, :tags ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   private
 
   def shift_tags
