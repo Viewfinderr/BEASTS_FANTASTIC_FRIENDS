@@ -20,6 +20,7 @@ class BeastsController < ApplicationController
   def show
     @user = current_user
     @beast = Beast.find(params[:id])
+    @booking = Booking.new
     @beast.user = @user
     authorize @beast
   end

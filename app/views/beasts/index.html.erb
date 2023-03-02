@@ -4,11 +4,11 @@
 <div class="container">
   <div class="cards">
     <% @beasts.each do |beast| %>
-        <%= link_to beast_path(beast), class: "text-decoration-none" do %>
+       <%= link_to beast_path(beast), class: "text-decoration-none" do %>
         <% if beast.photos.attached? %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path beast.photos.first.key, crop: :fill %>)" >
           </div>
-          <% end %>
+         <% end %>
           <div class="card-beast">
             <div class="card-beast-infos ">
               <div>
