@@ -1,12 +1,32 @@
-<h1 class= "text-white">Ur Beasts</h1>
+<div class="card-product m-3">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class= "flex-box-de-show-beast">
+    <div class="card-product-infos">
+      <h1 class= "text-white"><%= @beast.name %></h1>
+      <h2 class= "text-white"><%= @beast.race %></h2>
+    </div>
+    <div class= "container-card-beast">
+      <h3><% @beast.tags.each do |tag| %>
+       <%= tag == @beast.tags.last ? tag : "#{tag} /" %>
+      <% end %></h3>
+      <p>Description : <%= @beast.description %></p>
+    </div>
+  </div>
+</div>
 
 <% if policy(@beast).edit? %>
   <%= link_to "Edit this beast", edit_beast_path(@beast) %> |
 <% end %>
 <%= button_to "Destroy this beast", @beast, method: :delete if policy(@beast).destroy? %>
 
-<%= link_to "homepage", root_path%>
-<%= link_to "view beasts", beasts_path%>
-<%= link_to "Dasboard", dashboard_path%>
+<div class="container">
+<% @beast.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+</div>
 
-<%= link_to "Book a Beast",  new_beast_booking_path(@beast), class: "btn btn-secondary"  %>
+<%= link_to "homepage", root_path, class: "btn btn-secondary me-3" %>
+<%= link_to "view beasts", beasts_path, class: "btn btn-secondary me-3" %>
+<%= link_to "Dasboard", dashboard_path, class: "btn btn-secondary me-3" %>
+
+<%= link_to "Book a Beast",  new_beast_booking_path(@beast), class: "btn btn-primary"  %>
