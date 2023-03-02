@@ -9,6 +9,11 @@ class BeastsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: { beast: beast }),
         marker_html: render_to_string(partial: "marker")
       }
+      if params[:query].present?
+        @beasts = Beast.search_by_name_race_tags(params[:query])
+      else
+        @beasts = Beast.all
+      end
     end
   end
 
@@ -46,6 +51,6 @@ class BeastsController < ApplicationController
   private
 
   def beasts_params
-    params.require(:beast).permit(:race, :price_per_day, :danger_gauge, :name, :description, photos: [], tags: [])
+    params.require(:beast).permit(:race, :price_per_day, :danger_gauge, :name, :address, :description, photos: [], tags: [])
   end
 end

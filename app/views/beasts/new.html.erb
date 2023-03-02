@@ -7,6 +7,7 @@
     <%= f.input :description, label: 'Describe the beast💡' %>
     <%= f.input :tags, collection: Beast::TAGS, input_html: { multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true, plugins: ['remove_button']}}} %>
     <%= f.input :price_per_day, label: 'Price per Day 💸' %>
+    <%= f.input :address, label: false, label: "Address 🚗 :", placeholder: "ex: 16 villa gaudelet" %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, class:"btn btn-primary"%>
   <% end %>
