@@ -7,7 +7,7 @@ class Beast < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  validates :race, :danger_gauge, :tags, :price_per_day, :name, :description, presence: true
+  validates :race, :danger_gauge, :tags, :price_per_day, :adress, :name, :description, presence: true
   # validates :tags, inclusion: { in: TAGS }
   before_validation :shift_tags
 
