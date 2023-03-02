@@ -6,6 +6,7 @@
     <%= f.input :danger_gauge, hint: '../10', collection: (1..10).to_a %>
     <%= f.input :description, label: 'Describe the beast' %>
     <%= f.input :tags, collection: Beast::TAGS, input_html: { multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true, plugins: ['remove_button']}}} %>
+    <%= f.input :address %>
     <%= f.input :price_per_day %>
     <%= f.button :submit, class:"btn-primary" %>
 
