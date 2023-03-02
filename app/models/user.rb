@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :beasts
+  has_many :booked_beasts, through: :bookings, source: :beast
 
   has_many :requested_bookings, through: :beasts, source: :bookings
 end
