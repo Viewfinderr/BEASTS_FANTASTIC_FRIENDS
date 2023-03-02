@@ -15,6 +15,7 @@ class BeastsController < ApplicationController
   def show
     @user = current_user
     @beast = Beast.find(params[:id])
+    @booking = Booking.new
     @beast.user = @user
     authorize @beast
   end
@@ -46,6 +47,6 @@ class BeastsController < ApplicationController
   private
 
   def beasts_params
-    params.require(:beast).permit(:race, :price_per_day, :danger_gauge, :name, :description, photos: [], tags: [])
+    params.require(:beast).permit(:race, :price_per_day, :danger_gauge, :name, :address, :description, photos: [], tags: [])
   end
 end
