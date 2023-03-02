@@ -1,13 +1,11 @@
 <div class="container">
   <div class="vertical-list">
-    <div class="vertical-list-beast">
       <% current_user.beasts.each do |beast| %>
-      <%# <%= link_to cl_image_tag beast.photos.first.key, beast_path(beast), class:"avatar-beasts" %>
-      <%= link_to beast_path(beast) do %>
-        <%= cl_image_tag beast.photos.first.key, class:"avatar-beasts"  %>
-      <% end %>
+        <%= link_to beast_path(beast) do %>
+          <%= cl_image_tag beast.photos.first.key, class:"avatar-beasts vertical-list-beast" %>
+        <% end %>
       <% end  %>
-    </div>
+
     <!-- -->
   </div>
 
