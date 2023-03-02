@@ -1,0 +1,27 @@
+.card-product {
+  overflow: hidden;
+  height: 550px;
+  background: $purple;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  border-radius: 5px;
+}
+
+.card-product img {
+  object-fit: cover;
+  height: 90%;
+  width: 370px;
+  object-fit: cover;
+  margin-top: 27px;
+  margin-left: 25px;
+}
+
+
+.card-product .card-product-infos {
+  padding: 28px;
+
+}
+
+.card-product .container-card-beast {
+  padding: 28px;
+}

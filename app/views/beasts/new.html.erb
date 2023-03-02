@@ -3,14 +3,14 @@
   <%= simple_form_for @beast do |f| %>
     <%= f.input :name, label: 'The pet name :' %>
     <%= f.input :race, label: 'The race of your beast 🦄', error: 'Please specify one🔑' %>
-    <%= f.input :danger_gauge, hint: '../10', collection: (1..10).to_a %>
-    <%= f.input :description, label: 'Describe the beast' %>
+    <%= f.input :danger_gauge, hint: '../10 🏆', collection: (1..10).to_a %>
+    <%= f.input :description, label: 'Describe the beast💡' %>
     <%= f.input :tags, collection: Beast::TAGS, input_html: { multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true, plugins: ['remove_button']}}} %>
-    <%= f.input :price_per_day %>
+    <%= f.input :price_per_day, label: 'Price per Day 💸' %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.button :submit, class:"btn-primary"%>
+    <%= f.button :submit, class:"btn btn-primary"%>
   <% end %>
 
-  <%= link_to "homepage", root_path%>
-  <%= link_to "view beasts", beasts_path%>
+  <%= link_to "homepage", root_path, class: "btn btn-secondary mt-5" %>
+  <%= link_to "view beasts", beasts_path, class: "btn btn-secondary mt-5" %>
 </div>
