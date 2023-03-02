@@ -18,9 +18,17 @@ $info:       $yellow;
 $danger:     $red;
 $warning:    $orange;
 
+
 // Buttons & inputs' radius
 $border-radius:    2px;
 $border-radius-lg: 2px;
 $border-radius-sm: 2px;
+$nav-tabs-border-radius: 5px;
+
 
 // Override other variables below!
+
+
+// dropdown info
+$dropdown-border-radius: 10px;
+$dropdown-color: $magic-purple;
