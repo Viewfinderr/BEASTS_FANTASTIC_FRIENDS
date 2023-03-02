@@ -1,11 +1,17 @@
-<div class="vertical-list">
-<%# <% @beasts.current_user.photos.first.each do |photo| %> %>
-<%# <%= photo, class:"avatar-bordered" %> %>
-<%# <% end  %> %>
-</div>
-
 <div class="container">
-  <div class="beast-owner">
+  <div class="vertical-list">
+    <div class="vertical-list-beast">
+      <% current_user.beasts.each do |beast| %>
+      <%# <%= link_to cl_image_tag beast.photos.first.key, beast_path(beast), class:"avatar-beasts" %>
+      <%= link_to beast_path(beast) do %>
+        <%= cl_image_tag beast.photos.first.key, class:"avatar-beasts"  %>
+      <% end %>
+      <% end  %>
+    </div>
+    <!-- -->
+  </div>
+
+  <div class="booked-beasts">
     <span class="display-2">Your booked beasts</span>
     <div class="booked">
       <h1>current-booking</h1>
@@ -21,7 +27,7 @@
 
     <div class="booked">
       <h1>passed-bookings</h1>
-       <div class = "booking-info">
+      <div class = "booking-info">
         <div class="info-details">
           <p>beast booked, duration, total price, booker</p>
         </div>
@@ -46,7 +52,7 @@
   </div>
 
 
-  <div class="user-renting">
+  <div class="booked-beasts">
     <span class="display-2">beasts you booked</span>
     <div class="booked">
       <h1>current-booking</h1>

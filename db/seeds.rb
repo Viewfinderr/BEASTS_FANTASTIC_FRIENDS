@@ -14,30 +14,30 @@ User.destroy_all
 
 TAGS = %w[aquatic flying scaler wings tetrapod anphibic shell feathures carnivorus giant violent humanoïd bug plant polymorph elemental immaterial]
 
-addresses = []
-addresses << "16 Villa Gaudelet, Paris"
-addresses << "12 rue de la croix de bois, Boran sur Oise"
+# addresses = []
+# addresses << "16 Villa Gaudelet, Paris"
+# addresses << "12 rue de la croix de bois, Boran sur Oise"
 
-5.times do
-  user = User.create!(first_name: Faker::Movies::HarryPotter.character,
-               last_name: Faker::Movies::HarryPotter.house,
-               email: Faker::Internet.email,
-               password: Faker::Internet.password(min_length: 8))
-  2.times do
-    beast = Beast.new(name: "XX-Nazrog-xX", race: Faker::Fantasy::Tolkien.race, danger_gauge: rand(1..10), address: addresses.sample, price_per_day: 35, description: "djfbvmpefvypsemf")
-    beast.user = user
-    beast.tags = TAGS.sample(2)
-    beast.save!
-  end
-end
+# 5.times do
+#   user = User.create!(first_name: Faker::Movies::HarryPotter.character,
+#                last_name: Faker::Movies::HarryPotter.house,
+#                email: Faker::Internet.email,
+#                password: Faker::Internet.password(min_length: 8))
+#   2.times do
+#     beast = Beast.new(name: "XX-Nazrog-xX", race: Faker::Fantasy::Tolkien.race, danger_gauge: rand(1..10), address: addresses.sample, price_per_day: 35, description: "djfbvmpefvypsemf")
+#     beast.user = user
+#     beast.tags = TAGS.sample(2)
+#     beast.save!
+#   end
+# end
 
 
 
 # harry = User.create!(first_name: "harry",last_name: "potter", email: "jtm_voldemort@baguetteforever.com", password: "dracofdp")
 
-# file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-# beast = Beast.new(race: "hibou", danger_gauge: 3, price_per_day: 15, tags: ["flying"])
-# beast.photos.attach(io: file, filename: "https://aucomptoirdessorciers.fr/wp-content/uploads/2020/01/IMG_16072021-2.png", content_type: "image/png")
+# file = URI.open("https://aucomptoirdessorciers.fr/wp-content/uploads/2020/01/IMG_16072021-2.png")
+# beast = Beast.new(race: "hibou", name: "hedwige", description: "hibou volant", danger_gauge: 3, price_per_day: 15, tags: ["flying"])
+# beast.photos.attach(io: file, filename: "hedwige.png", content_type: "image/png")
 # beast.user = harry
 # beast.save
 
