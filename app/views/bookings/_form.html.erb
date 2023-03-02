@@ -1,7 +1,9 @@
 
 
+
+
 <div class="container">
- <h3 class = "text-white text-center ">Hey <%= current_user %> few step and <%= @beast.race %> will be your new BFF !</h3>
+ <h3 class = "text-white text-center ">Hey <%= current_user.first_name %>, a few more steps and <%= @beast.name %> will be your new BFF !</h3>
   <div data-controller="dynamic-booking-price" class = "text-white"
       data-dynamic-booking-price-price-value="<%= @beast.price_per_day %>">
     <%= simple_form_for [@beast, @booking],

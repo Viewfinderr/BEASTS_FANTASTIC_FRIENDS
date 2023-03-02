@@ -1,5 +1,7 @@
-<div class="card-product m-3">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+<div class="card-product p-4">
+    <% @beast.photos.each do |photo| %>
+    <%= cl_image_tag photo.key%>
+  <% end %>
   <div class= "flex-box-de-show-beast">
     <div class="card-product-infos">
       <h1 class= "text-white"><%= @beast.name %></h1>
@@ -19,16 +21,9 @@
 <% end %>
 <%= button_to "Destroy this beast", @beast, method: :delete if policy(@beast).destroy? %>
 
-<div class="container">
-  <% @beast.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-</div>
+<%# <div class="container">
+</div> %>
 
-<%= render 'bookings/form', booking: @booking %>
-
-<%= link_to "homepage", root_path, class: "btn btn-secondary me-3" %>
-<%= link_to "view beasts", beasts_path, class: "btn btn-secondary me-3" %>
-<%= link_to "Dasboard", dashboard_path, class: "btn btn-secondary me-3" %>
-
-<%= link_to "Book a Beast",  new_beast_booking_path(@beast), class: "btn btn-primary"  %>
+<% if current_user != @beast.user %>
+  <%= render 'bookings/form', booking: @booking %>
+<% end %>
