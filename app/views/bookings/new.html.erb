@@ -1,8 +1,40 @@
 
- <h3>A few step and <%= @beast.race %> will be your new BFF !</h3>
 
- <%= simple_form_for [@beast, @booking] do |f| %>
-  <%= f.input :start_date, as: :date %>
-  <%= f.input :end_date, as: :date %>
-  <%= f.submit class: "btn btn-flat text-white" %>
- <% end %>
+<div class="container">
+ <h3 class = "text-white text-center ">Hey <%= current_user %> few step and <%= @beast.race %> will be your new BFF !</h3>
+  <div data-controller="dynamic-booking-price" class = "text-white"
+      data-dynamic-booking-price-price-value="<%= @beast.price_per_day %>">
+    <%= simple_form_for [@beast, @booking],
+                        html: {
+                          data: {
+                            controller: 'flatpickr'
+                          }
+                        } do |f| %>
+    <%= f.input :start_date,
+                as: :string,
+                input_html: {
+                  data: {
+                    flatpickr_target: 'startDateInput',
+                    dynamic_booking_price_target: 'startDateInput',
+                    action: 'change->dynamic-booking-price#updatePrice'
+                  }
+                } %>
+    <%= f.input :end_date,
+                as: :string,
+                input_html: {
+                  # class: 'd-none',
+                  data: {
+                    flatpickr_target: 'endDateInput',
+                    dynamic_booking_price_target: 'endDateInput',
+                    action: 'change->dynamic-booking-price#updatePrice'
+                  }
+                } %>
+
+    <p class = "text-white">
+      Total price: <span data-dynamic-booking-price-target="priceHolder"><%= @beast.price_per_day %></span> €
+    </p>
+      <%= f.submit 'Book now !', class: "btn btn-outline-dark btn-lg text-white" %>
+    <% end %>
+
+  </div>
+ </div>
