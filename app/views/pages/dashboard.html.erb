@@ -1,2 +1,92 @@
-<h1 class= "text-white"> Coucou</h1>
-<p class= "text-white"> On a pas eu le temps</p>
+<div class="container">
+  <div class="vertical-list">
+    <% current_user.beasts.each do |beast| %>
+      <%= link_to beast_path(beast) do %>
+        <%= cl_image_tag beast.photos.first.key, class:"avatar-beasts vertical-list-beast" %>
+      <% end %>
+    <% end  %>
+
+    <!-- -->
+  </div>
+
+  <div class="booked-beasts">
+    <span class="display-2">Your booked beasts</span>
+    <div class="booked">
+      <h1>current-booking</h1>
+      <div class = "booking-info">
+        <div class="info-details">
+          <p>beast booked, duration, total price, booker</p>
+        </div>
+        <div class="info-user">
+          <p>user picture</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="booked">
+      <h1>passed-bookings</h1>
+      <div class = "booking-info">
+        <div class="info-details">
+          <p>beast booked, duration, total price, booker</p>
+        </div>
+        <div class="info-user">
+          <p>user picture</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="booked">
+      <h1>canceled-booking</h1>
+      <div class = "booking-info">
+        <div class="info-details">
+          <p>beast booked, duration, total price, booker</p>
+        </div>
+        <div class="info-user">
+          <p>user picture</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="booked-beasts">
+    <span class="display-2">beasts you booked</span>
+    <div class="booked">
+      <h1>current-booking</h1>
+      <div class = "booking-info">
+        <div class="info-details">
+          <p>beast booked, duration, total price, booker</p>
+        </div>
+        <div class="info-user">
+          <p>user picture</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="booked">
+      <h1>passed-bookings</h1>
+      <div class = "booking-info">
+        <div class="info-details">
+          <p>beast booked, duration, total price, booker</p>
+        </div>
+        <div class="info-user">
+          <p>user picture</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="booked">
+      <h1>canceled-booking</h1>
+      <div class = "booking-info">
+        <div class="info-details">
+          <p>beast booked, duration, total price, booker</p>
+        </div>
+        <div class="info-user">
+          <p>user picture</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
