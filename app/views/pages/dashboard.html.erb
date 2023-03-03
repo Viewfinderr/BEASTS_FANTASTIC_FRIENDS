@@ -1,3 +1,4 @@
+
 <div class="container">
 
   <div class="vertical-list">
@@ -6,6 +7,7 @@
         <%= cl_image_tag beast.photos.first.key, class:"avatar-beasts vertical-list-beast" %>
       <% end %>
     <% end  %>
+<<<<<<< HEAD
 
     <!-- -->
   </div>
@@ -78,6 +80,8 @@
         </div>
       </div>
     </div>
+=======
+>>>>>>> 8c8ce31e1d81e9a0d2d10fc82625a427365ef794
   </div>
 
 
@@ -93,21 +97,6 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
       <div class="booked-beasts">
-
-      <div class="booked">
-        <h1>current-booking</h1>
-        <div class = "booking-info">
-          <div class="info-details">
-            <% current_user.bookings.current.each do |booking| %>
-              <% if booking.beast.photos.attached? %>
-                <p> <%= cl_image_tag booking.beast.photos.first&.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
-              <% end %>
-              <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
-              <p>Status : <%= booking.status %></p>
-              <span class="btn btn-info"><%= link_to "cancel this booking", cancel_booking_path(booking), data: {turbo_method: :post} if policy(booking).cancel? %></span>
-            <% end %>
-          </div>
-        </div>
 
         <div class="booking-validation">
           <div>
