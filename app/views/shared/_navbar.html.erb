@@ -6,7 +6,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%# if user_signed_in? %>
+        <% if user_signed_in? %>
         <li>
           <%= form_with url: beasts_path, method: :get, class: "d-flex mt-3 m-3" do %>
             <%= text_field_tag :query,
@@ -14,7 +14,7 @@
               class: "form-control",
               placeholder: "Find your Beast"
             %>
-           <%= submit_tag "Search", class: "btn btn-secondary" %>
+           <%= submit_tag "Search", class: "shadow__btn" %>
           <% end %>
         </li>
           <li class="nav-item active me-3 mt-4">
@@ -26,18 +26,25 @@
             <%= link_to "Dashboard", dashboard_path, class: "shadow__btn"  %>
           </li>
           <li class="nav-item dropdown mt-3 ">
-            <%= image_tag "data:image/png;base64,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", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= cl_image_tag "https://cdn-icons-png.flaticon.com/512/8090/8090406.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Create account",  new_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Sign Up", new_user_session_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
-        <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
-        <%# end %>
+        <% else %>
+          <li class="nav-item active me-3 mt-4">
+            <%= link_to "Login", new_user_session_path, class: "shadow__btn" %>
+          </li>
+          <li class="nav-item active me-3 mt-4">
+            <%= link_to "View Beasts", beasts_path, class: "shadow__btn"  %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
