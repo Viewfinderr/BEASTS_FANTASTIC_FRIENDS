@@ -5,13 +5,28 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
   static targets = [ 'startDateInput', 'endDateInput' ]
+  static values = { dates: Object }
 
   connect() {
-    flatpickr(this.startDateInputTarget, {
-      mode: 'range',
+    this.#initFlatPickr()
+  }
+
+  #initFlatPickr() {
+    flatpickr(this.startDateInputTarget, this.#options());
+  }
+
+  #options() {
+    return {
+      ...this.#parsedBookedDates(),
       inline: true,
-      minDate: "today",
+      enableTime: true,
+      minDate: new Date(),
+      mode: 'range',
       "plugins": [new rangePlugin({ input: this.endDateInputTarget})]
-    })
+    }
+  }
+
+  #parsedBookedDates() {
+    return this.datesValue
   }
 }

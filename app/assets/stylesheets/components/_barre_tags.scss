@@ -1,0 +1,33 @@
+.barre_tags {
+  background-repeat: no-repeat;
+  margin-top: 10 px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background: cover;
+  margin: 0 auto;
+  width: 800px;
+  height: 130px;
+}
+
+.barre_tags h2 {
+  text-align: center;
+
+}
+
+.barre_tags .align-item {
+  font-size: 30px;
+  text-align: center;
+}
+
+.barre_tags .align-item .icons{
+  background: transparent
+}
+
+.barre_tags .align-item .icons:hover{
+  border-radius: 5px;
+  background-color:rgb(67, 0, 53);
+  box-shadow: 0 0 5px rgb(134, 1, 105),
+  0 0 25px rgb(134, 1, 105),
+  0 0 50px rgb(134, 1, 105),
+  0 0 100px rgb(134, 1, 105);
+}
