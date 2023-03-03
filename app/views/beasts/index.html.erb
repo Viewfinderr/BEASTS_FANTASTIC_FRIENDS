@@ -3,20 +3,22 @@
     <% @beasts.each do |beast| %>
        <%= link_to beast_path(beast), class: "text-decoration-none" do %>
         <% if beast.photos.attached? %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path beast.photos.first.key, crop: :fill %>)" >
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= cl_image_path beast.photos.first.key, crop: :fill %>)" >
           </div>
          <% end %>
           <div class="card-beast">
             <div class="card-beast-infos ">
               <div>
-                <h2><%= beast.race %></h2>
-                <% beast.tags.each do |tag| %>
-                <%= tag %>
-                <% end %>
+                <h2><%= beast.name %> | <%= beast.race %></h2>
+                <p><% beast.tags.each do |tag| %>
+                ❥ <%= tag %>
+                <% end %></p>
               </div>
               <div class="beast-info-reverse">
-                <h2 class="card-beast-pricing text-decoration-none">£<%= beast.price_per_day %></h2>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-beast-user avatar-bordered" />
+                <h2 class="card-beast-pricing text-decoration-none mt-2"> <strong><%= beast.price_per_day %> €</strong> / day</h2>
+                  <% if beast.user.photo.attached? %>
+                 <%= cl_image_tag beast.user.photo.key, class: "card-beast-user avatar-bordered" %>
+                 <% end %>
               </div>
             </div>
           </div>
@@ -28,6 +30,3 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
-<%= link_to "New beast", new_beast_path if policy(Beast).new? %>

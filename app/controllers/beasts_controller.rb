@@ -1,6 +1,10 @@
 class BeastsController < ApplicationController
   def index
-    @beasts = policy_scope(Beast)
+      if params[:query].present?
+        @beasts = Beast.search_by_name_race_tags(params[:query])
+      else
+        @beasts = policy_scope(Beast)
+      end
     @markers = @beasts.geocoded.map do |beast|
       {
         lat: beast.latitude,
@@ -8,11 +12,6 @@ class BeastsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: { beast: beast }),
         marker_html: render_to_string(partial: "marker")
       }
-      if params[:query].present?
-        @beasts = Beast.search_by_name_race_tags(params[:query])
-      else
-        @beasts = Beast.all
-      end
     end
   end
 

@@ -27,11 +27,13 @@
             <% end %>
           <% end %> -->
           <% current_user.requested_bookings.current.each do |booking| %>
-            <p> <%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
-            <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
-            <p>Status : <%= booking.status %></p>
-            <span class="btn btn-danger"><%= link_to "Decline this booking", decline_booking_path(booking), data: {turbo_method: :post} if policy(booking).decline? %></span>
-            <span class="btn btn-success"><%= link_to "Accept this booking", accept_booking_path(booking), data: {turbo_method: :post} if policy(booking).accept? %></span>
+            <% if booking.beast.photos.attached? %>
+              <p> <%= cl_image_tag booking.beast.photos.first&.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+            <% end %>
+              <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
+              <p>Status : <%= booking.status %></p>
+              <span class="btn btn-danger"><%= link_to "Decline this booking", decline_booking_path(booking), data: {turbo_method: :post} if policy(booking).decline? %></span>
+              <span class="btn btn-success"><%= link_to "Accept this booking", accept_booking_path(booking), data: {turbo_method: :post} if policy(booking).accept? %></span>
           <% end %>
         </div>
         <div class="info-user">
@@ -45,7 +47,9 @@
       <div class = "booking-info">
         <div class="info-details">
           <% current_user.requested_bookings.canceled.each do |booking| %>
-            <p> <%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+          <% if booking.beast.photos.attached? %>
+            <p> <%= cl_image_tag booking.beast.photos.first&.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+          <% end %>
             <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
             <p>Status : <%= booking.status %></p>
           <% end %>
@@ -61,7 +65,9 @@
       <div class = "booking-info">
         <div class="info-details">
           <% current_user.requested_bookings.declined.each do |booking| %>
-            <p> <%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+            <% if booking.beast.photos.attached? %>
+              <p> <%= cl_image_tag booking.beast.photos.first&.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+            <% end %>
             <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
             <p>Status : <%= booking.status %></p>
           <% end %>
@@ -83,7 +89,9 @@
         <div class = "booking-info">
           <div class="info-details">
             <% current_user.bookings.current.each do |booking| %>
-              <p> <%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+              <% if booking.beast.photos.attached? %>
+                <p> <%= cl_image_tag booking.beast.photos.first&.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+              <% end %>
               <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
               <p>Status : <%= booking.status %></p>
               <span class="btn btn-info"><%= link_to "cancel this booking", cancel_booking_path(booking), data: {turbo_method: :post} if policy(booking).cancel? %></span>
@@ -100,7 +108,9 @@
       <div class = "booking-info">
         <div class="info-details">
           <% current_user.bookings.canceled.each do |booking| %>
-              <p><%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+              <% if booking.beast.photos.attached? %>
+              <p><%= cl_image_tag booking.beast.photos.first&.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+              <% end %>
               <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
               <p>Status : <%= booking.status %></p>
           <% end %>        </div>
@@ -115,7 +125,9 @@
       <div class = "booking-info">
         <div class="info-details">
           <% current_user.bookings.declined.each do |booking| %>
-            <p> <%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+            <% if booking.beast.photos.attached? %>
+              <p> <%= cl_image_tag booking.beast.photos.first&.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+            <% end %>
             <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
             <p>Status : <%= booking.status %></p>
           <% end %>
