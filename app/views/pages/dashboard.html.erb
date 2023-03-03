@@ -1,7 +1,4 @@
-
-<div class="container">
-
-  <div class="vertical-list">
+ <div class="vertical-list">
     <% current_user.beasts.each do |beast| %>
       <%= link_to beast_path(beast) do %>
         <%= cl_image_tag beast.photos.first.key, class:"avatar-beasts vertical-list-beast" %>
