@@ -4,8 +4,8 @@
 
 .booked-beasts{
   background-color: rgb(44,56,95);
-  margin: 60px 0;
-  padding: 10px 15px;
+  margin: 10px 0 ;
+  padding: 10px 15px 20px 15px;
   border-radius: 10px;
 // box-shadow: 2px 2px 5px rgba(112, 112, 112, 0.437);
 }
@@ -13,19 +13,22 @@
 
 .booked{
   background-color: rgb(44,56,95);
-  border-bottom: 1px solid rgba(61, 61, 61, 0.322);
+  // border-bottom: 2px solid rgba(110, 110, 110, 0.662);
   // box-shadow: 1px 1px 5px rgba(62, 62, 62, 0.322);
-  padding-top: 10px;
+  padding: 20px 0;
 }
 
 .booking-info {
-  background-color:rgb(63, 77, 124) ;
-  padding: 10px;
+  // background-color:rgb(63, 77, 124) ;
   width: 100%;
-  margin:0;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
+}
+
+.booking-validation{
+  display: flex;
+  justify-content: space-between;
 }
 
 .vertical-list {
@@ -40,4 +43,31 @@
   margin: 10px 15px;
 }
 
+.dashboard-dropdown {
+  display:flex;
+  justify-content: space-between;
+  align-items: center ;
 
+}
+
+.info-details {
+  .btn a {
+    text-decoration: none;
+  }
+
+  .btn-danger a{
+    color: $light-gray;
+  }
+
+  .btn-success a{
+    color: $light-gray;
+  }
+}
+
+.btn-info{
+  a {
+  color: $light-gray;
+  }
+
+  background-color:  $orange;
+}

@@ -3,7 +3,7 @@ class Beast < ApplicationRecord
   has_many :bookings
   include BeastConcern
 
-  TAGS = %w[aquatic flying scaler wings tetrapod anphibic shell feathures carnivorus giant violent humanoïd bug plant polymorph elemental immaterial]
+  TAGS = %w[aquatic flying scaler wings tetrapod anphibic shell feathures carnivorus giant violent humanoïd bug plant polymorph elemental immaterial mount]
   has_many_attached :photos
 
   geocoded_by :address

@@ -1,6 +1,6 @@
 .card-category {
   background-size: cover;
-  background-position: center;
+  background-position: top;
   height: 180px;
   display: flex;
   justify-content: center;
@@ -31,6 +31,8 @@
   height: 200px;
   width: 100%;
   object-fit: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .card-beast  h2 {
@@ -72,6 +74,11 @@
   font-size: 6px;
 }
 
+.cards{
+  a:hover{
+    transform: scale(1.1);
+  }
+}
 
 
 // Smallest device

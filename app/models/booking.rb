@@ -11,7 +11,7 @@ class Booking < ApplicationRecord
   scope :canceled, -> { where(status: "canceled") }
   scope :pending, -> { where(status: "pending") }
 
-  scope :current, -> { where.not(status: ["declined", "canceled"]) }
+  scope :current, -> { where.not(status: ["declined", "canceled", "accepted"]) }
 
 
 
