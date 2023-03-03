@@ -1,7 +1,6 @@
 class BeastsController < ApplicationController
   def index
     @beasts = policy_scope(Beast)
-
     @markers = @beasts.geocoded.map do |beast|
       {
         lat: beast.latitude,
