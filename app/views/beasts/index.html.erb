@@ -1,27 +1,58 @@
+<div class= "barre_tags mt-3 opacity-50" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.pinimg.com/originals/63/24/3a/63243aacfe563f25e472f9e187723df1.gif);">
+  <h2 class= "title-bar text-white opacity-100">Our most requested animals : </h2>
+  <div class= "align-item">
+    <%= link_to beasts_path(query: "violent"), class: 'text-decoration-none' do %>
+      <i class=" icons fa-brands fa-d-and-d m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "bug"), class: 'text-decoration-none' do %>
+      <i class=" icons fa-solid fa-spider m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "wings"), class: 'text-decoration-none' do %>
+      <i class=" icons fa-solid fa-feather m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "immaterial"), class: 'text-decoration-none' do %>
+      <i class="icons fa-solid fa-ghost m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "giant"), class: 'text-decoration-none' do %>
+      <i class="icons fa-solid fa-hippo m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "mount"), class: 'text-decoration-none' do %>
+      <i class="icons fa-solid fa-horse m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "aquatic"), class: 'text-decoration-none' do %>
+      <i class="icons fa-solid fa-otter m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "plant"), class: 'text-decoration-none' do %>
+      <i class="icons fa-solid fa-leaf m-2 text-white"></i>
+    <% end %>
+  </div>
+</div>
 
-
-
-<div class="container">
+<div class="container mt-3">
   <div class="cards">
     <% @beasts.each do |beast| %>
-        <%= link_to beast_path(beast), class: "text-decoration-none" do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path beast.photos.first.key, crop: :fill %>)" >
+       <%= link_to beast_path(beast), class: "text-decoration-none" do %>
+        <% if beast.photos.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= cl_image_path beast.photos.first.key, crop: :fill %>)" >
           </div>
           <div class="card-beast">
             <div class="card-beast-infos ">
               <div>
-                <h2><%= beast.race %></h2>
-                <% beast.tags.each do |tag| %>
-                <%= tag %>
-                <% end %>
+                <h2><%= beast.name %> | <%= beast.race %></h2>
+                <p><% beast.tags.each do |tag| %>
+                ❥ <%= tag %>
+                <% end %></p>
               </div>
               <div class="beast-info-reverse">
-                <h2 class="card-beast-pricing text-decoration-none">£<%= beast.price_per_day %></h2>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-beast-user avatar-bordered" />
+                <h2 class="card-beast-pricing text-decoration-none mt-2"> <strong><%= beast.price_per_day %> €</strong> / day</h2>
+                 <% if beast.user.photo.attached? %>
+                 <%= cl_image_tag beast.user.photo.key, class: "card-beast-user avatar-bordered" %>
+                 <% end %>
               </div>
             </div>
           </div>
         <% end %>
+      <% end %>
     <% end %>
   </div>
 
