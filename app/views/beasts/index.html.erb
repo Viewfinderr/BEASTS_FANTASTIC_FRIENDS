@@ -1,4 +1,18 @@
-<div class="container">
+<div class= "barre_tags">
+<%= link_to beasts_path(query: "violent") do %>
+  <i class="fa-brands fa-d-and-d"></i>
+<% end %>
+
+<i class="fa-solid fa-spider"></i>
+<i class="fa-solid fa-feather"></i>
+<i class="fa-solid fa-ghost"></i>
+<i class="fa-brands fa-phoenix-framework"></i>
+<i class="fa-solid fa-hippo"></i>
+<i class="fa-brands fa-studiovinari"></i>
+<i class="fa-solid fa-leaf"></i>
+</div>
+
+<div class="container mt-3">
   <div class="cards">
     <% @beasts.each do |beast| %>
        <%= link_to beast_path(beast), class: "text-decoration-none" do %>
