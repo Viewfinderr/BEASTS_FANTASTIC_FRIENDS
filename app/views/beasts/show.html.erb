@@ -1,29 +1,77 @@
-<div class="card-product p-4">
-    <% @beast.photos.each do |photo| %>
-    <%= cl_image_tag photo.key%>
-  <% end %>
-  <div class= "flex-box-de-show-beast">
-    <div class="card-product-infos">
-      <h1 class= "text-white"><%= @beast.name %></h1>
-      <h2 class= "text-white"><%= @beast.race %></h2>
+<div class="beast-show">
+  <div class="card-product flex-description px-5">
+    <div class="beast-photos">
+      <div class="main-pic">
+        <%= cl_image_tag @beast.photos.first.key%>
+      </div>
     </div>
-    <div class= "container-card-beast">
-      <h3><% @beast.tags.each do |tag| %>
-       <%= tag == @beast.tags.last ? tag : "#{tag} /" %>
-      <% end %></h3>
-      <p>Description : <%= @beast.description %></p>
+
+    <div class= "flex-box-de-show-beast">
+      <div class="card-product-infos">
+        <h1 class= "text-white"><%= @beast.name %></h1>
+        <h2 class= "text-white"><%= @beast.race %></h2>
+      </div>
+      <div class= "container-card-beast">
+        <h3><% @beast.tags.each do |tag| %>
+        <%= tag == @beast.tags.last ? tag : "#{tag} /" %>
+        <% end %></h3>
+        <p>Description : <%= @beast.description %></p>
+      </div>
     </div>
   </div>
+  <div class="show-booking">
+    <% if current_user != @beast.user %>
+      <%= render 'bookings/form', booking: @booking %>
+    <% end %>
+  </div>
 </div>
+
 
 <% if policy(@beast).edit? %>
   <%= link_to "Edit this beast", edit_beast_path(@beast) %> |
 <% end %>
 <%= button_to "Destroy this beast", @beast, method: :delete if policy(@beast).destroy? %>
 
-<%# <div class="container">
-</div> %>
 
-<% if current_user != @beast.user %>
-  <%= render 'bookings/form', booking: @booking %>
-<% end %>
+
+
+
+
+    <!--
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <%# <div class="carousel-item active">
+          <img src="..." class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="...">
+        </div> %>
+
+        <% @beast.photos[1..-1].each do |photo| %>
+          <div class="carousel-item active">
+            <%= cl_image_tag photo.key, class: "d-block w100"%>
+          </div>
+        <% end %>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    -->
+    <!--
+    <div class="beasts-pic">
+       <% @beast.photos[1..-1].each do |photo| %>
+        <%= cl_image_tag photo.key%>
+      <% end %>
+    </div>
+    -->

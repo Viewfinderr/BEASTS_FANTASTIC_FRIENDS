@@ -1,7 +1,7 @@
 .card-product {
   overflow: hidden;
   height: 550px;
-  background: $purple;
+  background: linear-gradient(rgba(33,14,22,0.5), (rgba(1,3,29,0.3)));
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   border-radius: 5px;
@@ -20,4 +20,24 @@
 
 .card-product .container-card-beast {
   padding: 28px;
+}
+
+.beast-show {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 20px;
+}
+
+.beast-pic {
+  // width: 100%;
+}
+
+.show-booking {
+  width: 350px;
+}
+
+.flex-description {
+display:flex;
+justify-content: center;
+align-items: center;
 }
