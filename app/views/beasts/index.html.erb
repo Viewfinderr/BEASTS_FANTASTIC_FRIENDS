@@ -1,15 +1,31 @@
-<div class= "barre_tags">
-<%= link_to beasts_path(query: "violent") do %>
-  <i class="fa-brands fa-d-and-d"></i>
-<% end %>
-
-<i class="fa-solid fa-spider"></i>
-<i class="fa-solid fa-feather"></i>
-<i class="fa-solid fa-ghost"></i>
-<i class="fa-brands fa-phoenix-framework"></i>
-<i class="fa-solid fa-hippo"></i>
-<i class="fa-brands fa-studiovinari"></i>
-<i class="fa-solid fa-leaf"></i>
+<div class= "barre_tags mt-3 opacity-50" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.pinimg.com/originals/63/24/3a/63243aacfe563f25e472f9e187723df1.gif);">
+<h2 class= "title-bar text-white opacity-100">Our most requested animals : </h2>
+  <div class= "align-item">
+    <%= link_to beasts_path(query: "violent"), class: 'text-decoration-none' do %>
+      <i class=" icons fa-brands fa-d-and-d m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "bug"), class: 'text-decoration-none' do %>
+      <i class=" icons fa-solid fa-spider m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "wings"), class: 'text-decoration-none' do %>
+      <i class=" icons fa-solid fa-feather m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "immaterial"), class: 'text-decoration-none' do %>
+      <i class="icons fa-solid fa-ghost m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "giant"), class: 'text-decoration-none' do %>
+      <i class="icons fa-solid fa-hippo m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "mount"), class: 'text-decoration-none' do %>
+      <i class="icons fa-solid fa-horse m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "aquatic"), class: 'text-decoration-none' do %>
+      <i class="icons fa-solid fa-otter m-2 text-white"></i>
+    <% end %>
+    <%= link_to beasts_path(query: "plant"), class: 'text-decoration-none' do %>
+      <i class="icons fa-solid fa-leaf m-2 text-white"></i>
+    <% end %>
+  </div>
 </div>
 
 <div class="container mt-3">

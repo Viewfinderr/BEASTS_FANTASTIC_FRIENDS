@@ -69,7 +69,7 @@ beast.user = harry
 beast.save
 
 file = URI.open("https://monsterlegacy.files.wordpress.com/2017/02/aragogthreequart.jpg")
-beast = Beast.new(race: "Acromentula", name: "Aragog", description: "spooky spider that spiraled out of control", danger_gauge: 7, price_per_day: 15, tags: ["violent", "carnivorous"], address: addresses.sample)
+beast = Beast.new(race: "Acromentula", name: "Aragog", description: "spooky spider that spiraled out of control", danger_gauge: 7, price_per_day: 15, tags: ["bug", "violent", "carnivorous"], address: addresses.sample)
 beast.photos.attach(io: file, filename: "spooky-spider.png", content_type: "image/png")
 beast.user = hagrid
 beast.save
