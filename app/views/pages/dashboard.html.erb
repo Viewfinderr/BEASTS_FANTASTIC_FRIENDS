@@ -22,6 +22,7 @@
     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
       <div class="booked-beasts">
 
+        <!--
         <div class="dashboard-dropdown">
           <div class="display-2">Your booked beasts</div>
 
@@ -36,11 +37,12 @@
             </ul>
           </div>
         </div>
+        -->
 
         <div class="booking-validation">
           <div>
-            <div class="booked border-bottom">
-              <h1>current booking</h1>
+            <div class="booked border-bottom status">
+              <h1>Accepted request</h1>
               <% current_user.requested_bookings.accepted.each do |booking| %>
                 <div class = "booking-info">
                   <div class="info-details">
@@ -54,9 +56,8 @@
                 </div>
               <% end %>
             </div>
-
-            <div class="booked border-bottom">
-              <h1>declined/canceled booking</h1>
+            <div class="booked status">
+              <h1>Declined/canceled booking</h1>
               <% current_user.requested_bookings.declined.each do |booking| %>
                 <div class = "booking-info">
                   <div class="info-details">
@@ -67,8 +68,8 @@
                   <div class="info-user">
                     <p>user picture</p>
                   </div>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
             </div>
 
             <!--
@@ -91,7 +92,7 @@
           </div>
 
           <div class="booked  me-4 shadow rounded p-3 b-0">
-            <h1 class="mb-3">Current booking</h1>
+            <h1 class="mb-3">Pending request</h1>
                 <!-- //more verbal way of using "requested booking"//
                 <% current_user.beasts.each do |beast| %>
                   <% beast.bookings.current.each do |booking| %>
@@ -126,9 +127,10 @@
 
     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
       <div class="booked-beasts">
+
+          <!--
         <div class="dashboard-dropdown">
           <div class="display-2">Your bookings</div>
-
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Status
@@ -140,23 +142,7 @@
             </ul>
           </div>
         </div>
-
-          <div class="booked border-bottom">
-            <h1>current booking</h1>
-            <% current_user.bookings.current.each do |booking| %>
-              <div class = "booking-info ">
-                <div class="info-details pb-4 pt-2">
-                  <p> <%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
-                  <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
-                  <p>Status : <%= booking.status %></p>
-                  <span class="btn btn-info"><%= link_to "cancel this booking", cancel_booking_path(booking), data: {turbo_method: :post} if policy(booking).cancel? %></span>
-                </div>
-                <div class="info-user">
-                  <p>user picture</p>
-                </div>
-              </div>
-            <% end %>
-          </div>
+        -->
 
         <!--
         <div class="booked">
@@ -175,23 +161,59 @@
           </div>
         </div>
         -->
-
-        <div class="booked border-bottom">
-          <h1>declined / canceled booking</h1>
-          <% current_user.bookings.declined.each do |booking| %>
-            <div class = "booking-info">
-              <div class="info-details">
-                <p> <%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
-                <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
-                <p>Status : <%= booking.status %></p>
-              </div>
-              <div class="info-user">
-                <p>user picture</p>
-              </div>
+        <div class="booking-validation">
+          <div>
+            <div class="booked border-bottom">
+              <h1>Accepted booking</h1>
+              <% current_user.bookings.accepted.each do |booking| %>
+                <div class = "booking-info ">
+                  <div class="info-details pb-4 pt-2">
+                    <p> <%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+                    <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
+                    <p>Status : <%= booking.status %></p>
+                  </div>
+                  <div class="info-user">
+                    <p>user picture</p>
+                  </div>
+                </div>
+              <% end %>
             </div>
-          <% end %>
-        </div>
 
+            <div class="booked">
+              <h1>declined / canceled booking</h1>
+              <% current_user.bookings.declined.each do |booking| %>
+                <div class = "booking-info">
+                  <div class="info-details">
+                    <p> <%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+                    <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
+                    <p>Status : <%= booking.status %></p>
+                  </div>
+                  <div class="info-user">
+                    <p>user picture</p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="booked me-4 shadow rounded p-3 b-0">
+            <h1>Pending booking</h1>
+            <% current_user.bookings.pending.each do |booking| %>
+              <div class = "booking-info ">
+                <div class="info-details pb-4 pt-2">
+                  <p> <%= cl_image_tag booking.beast.photos.first.key, class:"avatar-bordered me-3" %> <%= booking.beast.name   %></p>
+                  <p><%= booking.start_date %>  -  <%= booking.end_date %></p>
+                  <p>Status : <%= booking.status %></p>
+                  <span class="btn btn-info"><%= link_to "cancel this booking", cancel_booking_path(booking), data: {turbo_method: :post} if policy(booking).cancel? %></span>
+                </div>
+                <div class="info-user">
+                  <p>user picture</p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>

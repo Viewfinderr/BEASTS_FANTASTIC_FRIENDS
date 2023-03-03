@@ -1,13 +1,23 @@
-<div class="card-product p-4">
-    <% @beast.photos.each do |photo| %>
-    <%= cl_image_tag photo.key%>
-  <% end %>
-  <div class= "flex-box-de-show-beast">
-    <div class="card-product-infos">
-      <h1 class= "text-white"><%= @beast.name %></h1>
-      <h2 class= "text-white"><%= @beast.race %></h2>
+  <div class="card-product">
+
+    <div class="beasts-photos">
+      <div class="main-photo">
+      <% @beast.photos.each do |photo| %>
+        <%= cl_image_tag photo.key%>
+      <% end %>
+      </div>
+
+      <div class="carroussel-photos">
+      </div>
     </div>
-    <div class= "container-card-beast">
+
+    <div class= "flex-box-de-show-beast">
+      <div class="card-product-infos">
+        <h1 class= "text-white"><%= @beast.name %></h1>
+        <h2 class= "text-white"><%= @beast.race %></h2>
+      </div>
+
+      <div class= "container-card-beast">
       <h3><% @beast.tags.each do |tag| %>
        <%= tag == @beast.tags.last ? tag : "#{tag} /" %>
       <% end %></h3>
@@ -21,8 +31,6 @@
 <% end %>
 <%= button_to "Destroy this beast", @beast, method: :delete if policy(@beast).destroy? %>
 
-<%# <div class="container">
-</div> %>
 
 <% if current_user != @beast.user %>
   <%= render 'bookings/form', booking: @booking %>
