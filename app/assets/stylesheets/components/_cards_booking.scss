@@ -49,3 +49,25 @@
   align-items: center ;
 
 }
+
+.info-details {
+  .btn a {
+    text-decoration: none;
+  }
+
+  .btn-danger a{
+    color: $light-gray;
+  }
+
+  .btn-success a{
+    color: $light-gray;
+  }
+}
+
+.btn-info{
+  a {
+  color: $light-gray;
+  }
+
+  background-color:  $orange;
+}
