@@ -51,9 +51,9 @@ malefoy.save!
 
 #
 
-file = URI.open("https://aucomptoirdessorciers.fr/wp-content/uploads/2020/01/IMG_16072021-2.png")
-beast = Beast.new(race: "Owl", name: "Hedwige", description: "Flying beast", danger_gauge: 3, price_per_day: 15, tags: ["flying"], address: addresses.sample)
-beast.photos.attach(io: file, filename: "hedwige.png", content_type: "image/png")
+file = URI.open("https://www.allaboutbirds.org/guide/assets/photo/297366501-480px.jpg")
+beast = Beast.new(race: "Owl", name: "hedwige", description: "flying beast", danger_gauge: 3, price_per_day: 15, tags: ["flying"], address: addresses.sample)
+beast.photos.attach(io: file, filename: "hedwige.jpg", content_type: "image/jpg")
 beast.user = harry
 beast.save
 
@@ -82,7 +82,7 @@ beast.user = harry
 beast.save
 
 file = URI.open("https://monsterlegacy.files.wordpress.com/2017/02/aragogthreequart.jpg")
-beast = Beast.new(race: "Acromentula", name: "Aragog", description: "Spooky spider that spiraled out of control", danger_gauge: 7, price_per_day: 15, tags: ["violent", "carnivorous"], address: addresses.sample)
+beast = Beast.new(race: "Acromentula", name: "Aragog", description: "spooky spider that spiraled out of control", danger_gauge: 7, price_per_day: 15, tags: ["bug", "violent", "carnivorous"], address: addresses.sample)
 beast.photos.attach(io: file, filename: "spooky-spider.png", content_type: "image/png")
 beast.user = hagrid
 beast.save

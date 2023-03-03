@@ -1,7 +1,7 @@
 class BeastsController < ApplicationController
   def index
       if params[:query].present?
-        @beasts = Beast.search_by_name_race_tags(params[:query])
+        @beasts = policy_scope(Beast.search_by_name_race_tags(params[:query]))
       else
         @beasts = policy_scope(Beast)
       end
@@ -19,7 +19,6 @@ class BeastsController < ApplicationController
     @user = current_user
     @beast = Beast.find(params[:id])
     @booking = Booking.new
-    @beast.user = @user
     authorize @beast
   end
 
