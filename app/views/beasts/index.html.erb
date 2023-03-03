@@ -1,11 +1,12 @@
+
+
+
 <div class="container">
   <div class="cards">
     <% @beasts.each do |beast| %>
-       <%= link_to beast_path(beast), class: "text-decoration-none" do %>
-        <% if beast.photos.attached? %>
+        <%= link_to beast_path(beast), class: "text-decoration-none" do %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path beast.photos.first.key, crop: :fill %>)" >
           </div>
-         <% end %>
           <div class="card-beast">
             <div class="card-beast-infos ">
               <div>
@@ -30,4 +31,3 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 
-<%= link_to "New beast", new_beast_path if policy(Beast).new? %>
