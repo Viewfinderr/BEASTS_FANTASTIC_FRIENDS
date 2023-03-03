@@ -22,4 +22,11 @@
   padding: 28px;
 }
 
-
+.card-product:hover {
+  transform: scale(1.1);
+}
+.cards{
+  .home-hover:hover {
+    transform: scale(1.1);
+  }
+}
