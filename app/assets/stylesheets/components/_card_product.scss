@@ -22,6 +22,7 @@
   padding: 28px;
 }
 
+
 .beast-show {
   display: flex;
   justify-content: space-evenly;
@@ -40,4 +41,13 @@
 display:flex;
 justify-content: center;
 align-items: center;
+
+.card-product:hover {
+  transform: scale(1.1);
+}
+.cards{
+  .home-hover:hover {
+    transform: scale(1.1);
+  }
+
 }
